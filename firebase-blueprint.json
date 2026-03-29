@@ -1,0 +1,126 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A product in the store",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the product"
+        },
+        "price": {
+          "type": "string",
+          "description": "The price of the product (e.g., '800 ج')"
+        },
+        "image": {
+          "type": "string",
+          "description": "The main URL of the product image"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the product"
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the product (upholstery or accessories)"
+        },
+        "badge": {
+          "type": "string",
+          "description": "A badge for the product (e.g., 'الأكثر طلباً')"
+        },
+        "images": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Gallery images"
+        },
+        "colors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Available hex colors"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the product was added"
+        }
+      },
+      "required": ["name", "price", "image", "category", "description", "createdAt"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Global site settings",
+      "type": "object",
+      "properties": {
+        "heroImage": { "type": "string" },
+        "logoText": { "type": "string" },
+        "logoSubtext": { "type": "string" },
+        "facebookUrl": { "type": "string" },
+        "whatsappNumber": { "type": "string" },
+        "instagramUrl": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "location": { "type": "string" },
+        "locationUrl": { "type": "string" },
+        "paymentMethods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "icon": { "type": "string" },
+              "label": { "type": "string" },
+              "active": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "Review": {
+      "title": "Review",
+      "description": "A customer review",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "car": { "type": "string" },
+        "text": { "type": "string" },
+        "stars": { "type": "integer" },
+        "initials": { "type": "string" },
+        "color": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "text", "stars", "createdAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user profile",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "products": {
+      "schema": "Product",
+      "description": "A collection of products"
+    },
+    "settings": {
+      "schema": "Settings",
+      "description": "Global site settings"
+    },
+    "reviews": {
+      "schema": "Review",
+      "description": "A collection of customer reviews"
+    },
+    "users": {
+      "schema": "User",
+      "description": "A collection of user profiles"
+    }
+  }
+}

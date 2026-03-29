@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Tajawal", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-brand-red: #C0392B;
+  --color-brand-red-dark: #8B1A1A;
+  --color-brand-black: #0A0A0A;
+  --color-brand-dark: #111;
+  --color-brand-dark2: #1A1A1A;
+  --color-brand-dark3: #222;
+  --color-brand-gray: #444;
+  --color-brand-muted: #777;
+  --color-brand-white: #F5F0EE;
+}
+
+:root {
+  --nav-h: 62px;
+}
+
+body {
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-white);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-blink {
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes mq {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: mq 12s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bg-brand-gradient {
+  background: linear-gradient(90deg, #8B1A1A 0%, #C0392B 50%, #8B1A1A 100%);
+}
+
+.clip-polygon {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 65% at 20% 45%, rgba(139,26,26,0.25) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 15%, rgba(192,57,43,0.07) 0%, transparent 60%);
+}
+
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(192,57,43,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192,57,43,0.045) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+
+.hero-mask::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, var(--color-brand-black) 0%, transparent 45%),
+    linear-gradient(to right, var(--color-brand-black) 0%, transparent 35%),
+    linear-gradient(to bottom, var(--color-brand-black) 0%, transparent 20%),
+    linear-gradient(to left, var(--color-brand-black) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+}
