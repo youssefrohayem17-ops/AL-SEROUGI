@@ -8,25 +8,47 @@
 
   --color-brand-red: #C0392B;
   --color-brand-red-dark: #8B1A1A;
-  --color-brand-black: #0A0A0A;
-  --color-brand-dark: #111;
-  --color-brand-dark2: #1A1A1A;
-  --color-brand-dark3: #222;
-  --color-brand-gray: #444;
-  --color-brand-muted: #777;
-  --color-brand-white: #F5F0EE;
+  --color-brand-black: var(--bg-main);
+  --color-brand-dark: var(--bg-dark);
+  --color-brand-dark2: var(--bg-dark2);
+  --color-brand-dark3: var(--bg-dark3);
+  --color-brand-gray: var(--color-gray);
+  --color-brand-muted: var(--color-muted);
+  --color-brand-white: var(--color-text);
 }
 
 :root {
   --nav-h: 62px;
+  
+  /* Dark Theme (Default) */
+  --bg-main: #0A0A0A;
+  --bg-dark: #111;
+  --bg-dark2: #1A1A1A;
+  --bg-dark3: #222;
+  --color-text: #F5F0EE;
+  --color-muted: #777;
+  --color-gray: #444;
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+.light {
+  --bg-main: #F5F0EE;
+  --bg-dark: #FFFFFF;
+  --bg-dark2: #EEEEEE;
+  --bg-dark3: #DDDDDD;
+  --color-text: #0A0A0A;
+  --color-muted: #555;
+  --color-gray: #AAA;
+  --border-color: rgba(0, 0, 0, 0.08);
 }
 
 body {
-  background-color: var(--color-brand-black);
-  color: var(--color-brand-white);
+  background-color: var(--bg-main);
+  color: var(--color-text);
   font-family: var(--font-sans);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @keyframes float {

@@ -35,7 +35,12 @@ import {
   DollarSign,
   PlusCircle,
   Loader2,
-  Banknote
+  Banknote,
+  ChevronRight,
+  MessageCircle,
+  Sun,
+  Moon,
+  Languages
 } from 'lucide-react';
 import { 
   auth, 
@@ -332,6 +337,297 @@ const MARQUEE_ITEMS = [
   "مقاعد جلد فاخر", "سجاد مخملي", "خياطة يدوية", "تشطيب احترافي", "ضمان الجودة", "AL-SEROUGI"
 ];
 
+// --- Translations ---
+const TRANSLATIONS = {
+  ar: {
+    home: 'الرئيسية',
+    about: 'من نحن',
+    contact: 'تواصل معنا',
+    admin: 'لوحة التحكم',
+    cart: 'سلة التسوق',
+    emptyCart: 'السلة فارغة حالياً',
+    startShopping: 'ابدأ التسوق الآن',
+    checkout: 'إتمام الطلب عبر واتساب',
+    products: 'المنتجات',
+    categories: 'الأقسام',
+    browseCategories: 'تصفح الأقسام',
+    showCategories: 'عرض الأقسام',
+    hideCategories: 'إخفاء الأقسام',
+    loading: 'جاري تحميل المنتجات...',
+    heroTitle: 'السروجي',
+    heroSubtitle: 'بيتكلم عن نفسه',
+    heroDescription: 'نقدم أرقى خامات الجلد وأحدث تصميمات، بحرفية عالية وضمان طويل الأمد.',
+    learnMore: 'اعرف أكتر',
+    contactUs: 'تواصل معنا',
+    ourCollection: 'مجموعتنا المميزة',
+    viewDetails: 'عرض التفاصيل',
+    addToCart: 'إضافة إلى السلة',
+    addedToCart: 'تمت الإضافة للسلة بنجاح!',
+    backToStore: 'العودة للمتجر',
+    theme: 'المظهر',
+    light: 'فاتح',
+    dark: 'داكن',
+    language: 'اللغة',
+    arabic: 'العربية',
+    english: 'English',
+    adminMode: 'وضع المسؤول نشط',
+    login: 'دخول الإدارة',
+    logout: 'تسجيل خروج',
+    footerRights: 'جميع الحقوق محفوظة.',
+    footerSub: 'مفروشات السيارات الفاخرة',
+    paymentMethods: 'طرق الدفع',
+    before: 'قبل التجديد',
+    after: 'بعد التجديد',
+    productDetails: 'تفاصيل المنتج',
+    price: 'السعر',
+    currency: 'ج.م',
+    availableColors: 'الألوان المتاحة',
+    upholstery: 'فرش السيارة',
+    accessories: 'كماليات وإكسسوارات',
+    reviews: 'آراء العملاء',
+    whatTheySaid: 'قالوا عنا',
+    addReview: 'أضف رأيك',
+    reviewPlaceholder: 'اكتب تجربتك معنا...',
+    namePlaceholder: 'مثال: أحمد محمد',
+    carPlaceholder: 'مثال: تويوتا كورولا 2023',
+    submitReview: 'نشر الرأي ✓',
+    yourName: 'اسمك',
+    yourCar: 'نوع عربيتك (اختياري)',
+    yourRating: 'تقييمك',
+    yourExperience: 'رأيك في السروجي',
+    total: 'الإجمالي',
+    productsCount: 'منتجات',
+    aboutDescription: 'في السروجي، الخبرة هي اللي بتتكلم. مش مجرد مكان لفرش السيارات، إحنا وجهتك الأولى لما تدور على أعلى جودة وأدق تقفيل.',
+    feature1Title: 'خبرة سنين',
+    feature1Desc: 'فاهمين احتياج كل صاحب عربية وبنقدم له اللي يعيش معاه.',
+    feature2Title: 'جودة حقيقية',
+    feature2Desc: 'بنختار خاماتنا بعناية عشان نضمن لك الرفاهية والحماية الكاملة.',
+    feature3Title: 'ثقة متبادلة',
+    feature3Desc: 'اسمنا ارتبط بالأمانة في الشغل، وده اللي بيخلي عملائنا دايمًا يختارونا.',
+    aboutFooter: 'باختصار.. إحنا بنهتم بعربيتك كأنها عربيتنا، وبنقدم لك النتيجة اللي تليق بذوقك وتعيش معاك.',
+    contactTitle: 'كلمنا على طول',
+    contactDescription: 'عايز تعرف أكتر أو تعمل طلب؟ إحنا هنا عشانك على كل المنصات.',
+    facebook: 'فيسبوك',
+    instagram: 'إنستجرام',
+    whatsapp: 'واتساب',
+    callUs: 'اتصل بنا',
+    ourLocation: 'موقعنا',
+    clickToOpenMap: 'اضغط لفتح الخريطة',
+    errorTitle: 'عذراً، حدث خطأ ما!',
+    errorDesc: 'واجه التطبيق مشكلة تقنية غير متوقعة. يرجى محاولة إعادة تحميل الصفحة.',
+    reload: 'إعادة تحميل الصفحة',
+    adminTitle: 'لوحة التحكم',
+    adminTitleMain: 'لوحة',
+    adminTitleRed: 'التحكم',
+    adminSub: 'إدارة المنتجات وإعدادات الموقع',
+    productsTab: 'المنتجات',
+    settingsTab: 'الإعدادات',
+    manageProducts: 'إدارة المنتجات',
+    restoreOriginal: 'استعادة الأصلي',
+    addProduct: 'إضافة منتج جديد',
+    editProduct: 'تعديل المنتج',
+    productName: 'اسم المنتج',
+    productPrice: 'السعر',
+    productCategory: 'القسم',
+    productImage: 'صورة المنتج',
+    productDescription: 'الوصف',
+    saveChanges: 'حفظ التعديلات',
+    cancel: 'إلغاء',
+    confirm: 'تأكيد',
+    delete: 'حذف',
+    uploadImage: 'رفع صورة من الجهاز',
+    uploading: 'جاري الرفع...',
+    uploadFailed: 'فشل رفع صورة. حاول مرة أخرى.',
+    productAdded: 'تم إضافة المنتج بنجاح',
+    productUpdated: 'تم تحديث المنتج بنجاح',
+    productDeleted: 'تم حذف المنتج بنجاح',
+    saveFailed: 'فشل في حفظ المنتج',
+    deleteFailed: 'فشل في حذف المنتج',
+    settingsSaved: 'تم حفظ الإعدادات بنجاح',
+    settingsFailed: 'فشل في حفظ الإعدادات',
+    interfaceSettings: 'إعدادات الواجهة',
+    heroImage: 'صورة الهيرو (الرئيسية)',
+    logoText1: 'نص اللوجو (1)',
+    logoText2: 'نص اللوجو (2)',
+    contactLinks: 'روابط التواصل',
+    facebookLink: 'رابط فيسبوك',
+    instagramLink: 'رابط إنستجرام',
+    whatsappNumber: 'رقم الواتساب (بدون +)',
+    phoneNumber: 'رقم الهاتف',
+    addressText: 'العنوان (نص)',
+    mapUrl: 'رابط الخريطة (Google Maps)',
+    availablePayments: 'طرق الدفع المتاحة',
+    saveAllSettings: 'حفظ جميع الإعدادات',
+    imagePreview: 'معاينة الصورة',
+    imageUrl: 'رابط الصورة (URL)',
+    selectCategory: 'اختر قسماً لعرض المنتجات',
+    currentProducts: 'قائمة المنتجات الحالية',
+    rights: 'جميع الحقوق محفوظة.',
+    forLuxury: 'للفرش الفاخر',
+    adminLogin: 'دخول الإدارة',
+    openAdmin: 'فتح لوحة التحكم'
+  },
+  en: {
+    home: 'Home',
+    about: 'About Us',
+    contact: 'Contact Us',
+    admin: 'Admin Panel',
+    cart: 'Shopping Cart',
+    emptyCart: 'Your cart is empty',
+    startShopping: 'Start Shopping Now',
+    checkout: 'Checkout via WhatsApp',
+    products: 'Products',
+    categories: 'Categories',
+    browseCategories: 'Browse Categories',
+    showCategories: 'Show Categories',
+    hideCategories: 'Hide Categories',
+    loading: 'Loading products...',
+    heroTitle: 'AL-SEROUGI',
+    heroSubtitle: 'Speaks for itself',
+    heroDescription: 'We offer the finest leather materials and latest designs, with high craftsmanship and long-term warranty.',
+    learnMore: 'Learn More',
+    contactUs: 'Contact Us',
+    ourCollection: 'Our Collection',
+    viewDetails: 'View Details',
+    addToCart: 'Add to Cart',
+    addedToCart: 'Added to cart successfully!',
+    backToStore: 'Back to Store',
+    theme: 'Theme',
+    light: 'Light',
+    dark: 'Dark',
+    language: 'Language',
+    arabic: 'Arabic',
+    english: 'English',
+    adminMode: 'Admin Mode Active',
+    login: 'Admin Login',
+    logout: 'Logout',
+    footerRights: 'All rights reserved.',
+    footerSub: 'Luxury Car Upholstery',
+    paymentMethods: 'Payment Methods',
+    before: 'Before',
+    after: 'After',
+    productDetails: 'Product Details',
+    price: 'Price',
+    currency: 'EGP',
+    availableColors: 'Available Colors',
+    upholstery: 'Upholstery',
+    accessories: 'Accessories',
+    reviews: 'Customer Reviews',
+    whatTheySaid: 'What They Said',
+    addReview: 'Add Review',
+    reviewPlaceholder: 'Write your experience...',
+    namePlaceholder: 'e.g. John Doe',
+    carPlaceholder: 'e.g. Toyota Corolla 2023',
+    submitReview: 'Submit Review ✓',
+    yourName: 'Your Name',
+    yourCar: 'Your Car (Optional)',
+    yourRating: 'Your Rating',
+    yourExperience: 'Your Experience',
+    total: 'Total',
+    productsCount: 'products',
+    aboutDescription: 'At Al-Serougi, experience speaks for itself. We are not just a car upholstery shop; we are your first destination for the highest quality and most precise finishing.',
+    feature1Title: 'Years of Experience',
+    feature1Desc: 'We understand every car owner\'s needs and provide what lasts.',
+    feature2Title: 'True Quality',
+    feature2Desc: 'We choose our materials carefully to ensure luxury and complete protection.',
+    feature3Title: 'Mutual Trust',
+    feature3Desc: 'Our name is associated with honesty in work, which is why our customers always choose us.',
+    aboutFooter: 'In short.. we care about your car as if it were our own, and we provide the results that suit your taste and live with you.',
+    contactTitle: 'Contact Us Now',
+    contactDescription: 'Want to know more or place an order? We are here for you on all platforms.',
+    facebook: 'Facebook',
+    instagram: 'Instagram',
+    whatsapp: 'WhatsApp',
+    callUs: 'Call Us',
+    ourLocation: 'Our Location',
+    clickToOpenMap: 'Click to open map',
+    errorTitle: 'Oops, something went wrong!',
+    errorDesc: 'The application encountered an unexpected technical problem. Please try reloading the page.',
+    reload: 'Reload Page',
+    adminTitle: 'Admin Dashboard',
+    adminTitleMain: 'Admin',
+    adminTitleRed: 'Dashboard',
+    adminSub: 'Manage products and site settings',
+    productsTab: 'Products',
+    settingsTab: 'Settings',
+    manageProducts: 'Manage Products',
+    restoreOriginal: 'Restore Original',
+    addProduct: 'Add New Product',
+    editProduct: 'Edit Product',
+    productName: 'Product Name',
+    productPrice: 'Price',
+    productCategory: 'Category',
+    productImage: 'Product Image',
+    productDescription: 'Description',
+    saveChanges: 'Save Changes',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    delete: 'Delete',
+    uploadImage: 'Upload Image',
+    uploading: 'Uploading...',
+    uploadFailed: 'Upload failed. Try again.',
+    productAdded: 'Product added successfully',
+    productUpdated: 'Product updated successfully',
+    productDeleted: 'Product deleted successfully',
+    saveFailed: 'Failed to save product',
+    deleteFailed: 'Failed to delete product',
+    settingsSaved: 'Settings saved successfully',
+    settingsFailed: 'Failed to save settings',
+    interfaceSettings: 'Interface Settings',
+    heroImage: 'Hero Image (Main)',
+    logoText1: 'Logo Text (1)',
+    logoText2: 'Logo Text (2)',
+    contactLinks: 'Contact Links',
+    facebookLink: 'Facebook Link',
+    instagramLink: 'Instagram Link',
+    whatsappNumber: 'WhatsApp Number (No +)',
+    phoneNumber: 'Phone Number',
+    addressText: 'Address (Text)',
+    mapUrl: 'Map URL (Google Maps)',
+    availablePayments: 'Available Payment Methods',
+    saveAllSettings: 'Save All Settings',
+    imagePreview: 'Image Preview',
+    imageUrl: 'Image URL',
+    selectCategory: 'Select a category to view products',
+    currentProducts: 'Current Products List',
+    rights: 'All rights reserved.',
+    forLuxury: 'for Luxury Upholstery',
+    adminLogin: 'Admin Login',
+    openAdmin: 'Open Admin Panel'
+  }
+};
+
+// --- Components ---
+
+function ToggleSwitch({ options, value, onChange, label }: { options: { id: string, label: string, icon?: React.ReactNode }[], value: string, onChange: (id: any) => void, label: string }) {
+  return (
+    <div className="flex items-center justify-between py-1.5">
+      <span className="text-[11px] font-black text-brand-muted uppercase tracking-widest">{label}</span>
+      <div className="flex bg-white/5 p-1 rounded-full border border-white/10 relative overflow-hidden">
+        {options.map((opt) => (
+          <button
+            key={opt.id}
+            onClick={() => onChange(opt.id)}
+            className={`relative px-4 py-1.5 text-[10px] font-black uppercase tracking-widest transition-all duration-300 z-10 flex items-center gap-2 ${
+              value === opt.id ? 'text-white' : 'text-brand-muted hover:text-white/60'
+            }`}
+          >
+            {opt.icon && <span className="opacity-80">{opt.icon}</span>}
+            {opt.label}
+            {value === opt.id && (
+              <motion.div
+                layoutId={`active-pill-${label}`}
+                className="absolute inset-0 bg-brand-red rounded-full -z-10 shadow-[0_0_15px_rgba(192,57,43,0.3)]"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // --- Components ---
 
 interface ErrorBoundaryProps {
@@ -463,6 +759,19 @@ function AppContent() {
   const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [lang, setLang] = useState<'ar' | 'en'>('ar');
+
+  const t = TRANSLATIONS[lang];
+
+  // Theme Effect
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }, [theme]);
 
   const cartCount = cartItems.length;
 
@@ -779,7 +1088,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen rtl" dir="rtl">
+    <div className={`min-h-screen ${theme === 'light' ? 'light' : 'dark'} ${lang === 'ar' ? 'rtl' : 'ltr'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       {loading && <LoadingScreen />}
       
       {/* Toast System */}
@@ -803,7 +1112,7 @@ function AppContent() {
             className="fixed top-20 left-1/2 -translate-x-1/2 bg-brand-red text-white px-6 py-3 rounded-full shadow-2xl z-[2001] flex items-center gap-2 font-bold"
           >
             <CheckCircle2 size={18} />
-            تمت الإضافة للسلة بنجاح!
+            {t.addedToCart}
           </motion.div>
         )}
       </AnimatePresence>
@@ -824,7 +1133,7 @@ function AppContent() {
           onClick={() => handleShowPage('home')}
         >
           <span className="font-display text-xl font-black text-brand-white">
-            {settings.logoText}<span className="text-brand-red">{settings.logoSubtext}</span>
+            {lang === 'ar' ? settings.logoText : 'AL-'}<span className="text-brand-red">{lang === 'ar' ? settings.logoSubtext : 'SEROUGI'}</span>
           </span>
         </button>
 
@@ -862,13 +1171,15 @@ function AppContent() {
 
       {/* Drawer */}
       <motion.div 
-        className="fixed top-0 right-0 w-[min(78vw,290px)] h-full bg-brand-dark border-l border-white/5 z-[999] flex flex-col overflow-y-auto"
-        initial={{ x: '100%' }}
-        animate={{ x: isDrawerOpen ? 0 : '100%' }}
+        className={`fixed top-0 ${lang === 'ar' ? 'right-0' : 'left-0'} w-[min(78vw,290px)] h-full bg-brand-dark border-l border-white/5 z-[999] flex flex-col overflow-y-auto`}
+        initial={{ x: lang === 'ar' ? '100%' : '-100%' }}
+        animate={{ x: isDrawerOpen ? 0 : (lang === 'ar' ? '100%' : '-100%') }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
       >
         <div className="p-5 border-b border-white/5 flex items-center justify-between min-h-[var(--nav-h)]">
-          <div className="font-display text-lg font-black">{settings.logoText}<span className="text-brand-red">{settings.logoSubtext}</span></div>
+          <div className="font-display text-lg font-black">
+            {lang === 'ar' ? settings.logoText : 'AL-'}<span className="text-brand-red">{lang === 'ar' ? settings.logoSubtext : 'SEROUGI'}</span>
+          </div>
           <button className="bg-transparent border-none text-brand-muted text-xl cursor-pointer w-8 h-8 flex items-center justify-center" onClick={() => setIsDrawerOpen(false)}>
             <X size={24} />
           </button>
@@ -878,21 +1189,24 @@ function AppContent() {
             active={activePage === 'home'} 
             onClick={() => handleShowPage('home')} 
             icon={<Home size={18} />} 
-            label="الرئيسية" 
+            label={t.home} 
+            lang={lang}
           />
           <div className="h-px bg-white/5 mx-6 my-1"></div>
           <DrawerLink 
             active={activePage === 'about'} 
             onClick={() => handleShowPage('about')} 
             icon={<Store size={18} />} 
-            label="من نحن" 
+            label={t.about} 
+            lang={lang}
           />
           <div className="h-px bg-white/5 mx-6 my-1"></div>
           <DrawerLink 
             active={activePage === 'contact'} 
             onClick={() => handleShowPage('contact')} 
             icon={<Phone size={18} />} 
-            label="تواصل معنا" 
+            label={t.contact} 
+            lang={lang}
           />
           {isAdmin && (
             <>
@@ -901,31 +1215,53 @@ function AppContent() {
                 active={activePage === 'admin'} 
                 onClick={() => handleShowPage('admin')} 
                 icon={<Settings size={18} />} 
-                label="لوحة التحكم" 
+                label={t.admin} 
+                lang={lang}
               />
             </>
           )}
+
+          <div className="mt-8 px-6 space-y-4">
+            <ToggleSwitch 
+              label={t.theme}
+              value={theme}
+              onChange={setTheme}
+              options={[
+                { id: 'light', label: t.light, icon: <Sun size={12} /> },
+                { id: 'dark', label: t.dark, icon: <Moon size={12} /> }
+              ]}
+            />
+            <ToggleSwitch 
+              label={t.language}
+              value={lang}
+              onChange={setLang}
+              options={[
+                { id: 'ar', label: t.arabic, icon: <Languages size={12} /> },
+                { id: 'en', label: t.english, icon: <Languages size={12} /> }
+              ]}
+            />
+          </div>
         </nav>
         <div className="p-5 border-t border-white/5 text-[11px] text-brand-muted text-center leading-relaxed">
-          السروجي · AL-SEROUGI<br />مفروشات السيارات الفاخرة
+          {lang === 'ar' ? 'السروجي · AL-SEROUGI' : 'AL-SEROUGI'} <br /> {t.footerSub}
         </div>
       </motion.div>
 
       {isAdmin && activePage !== 'admin' && (
         <div className="fixed top-[var(--nav-h)] left-0 w-full bg-brand-red text-white text-[10px] font-bold py-1 px-4 z-[90] flex justify-between items-center shadow-lg">
-          <span>وضع المسؤول نشط</span>
-          <button onClick={() => handleShowPage('admin')} className="underline">فتح لوحة التحكم</button>
+          <span>{t.adminMode}</span>
+          <button onClick={() => handleShowPage('admin')} className="underline">{t.openAdmin}</button>
         </div>
       )}
 
       {/* Main Content */}
       <main className={`pt-[var(--nav-h)] min-h-screen ${isAdmin && activePage !== 'admin' ? 'mt-6' : ''}`}>
-        {activePage === 'home' && <HomePage onNavigate={handleShowPage} onSelectProduct={setSelectedProduct} products={products} loading={loading} settings={settings} />}
-        {activePage === 'about' && <AboutPage onOpenModal={() => setIsModalOpen(true)} reviews={reviews} settings={settings} />}
-        {activePage === 'contact' && <ContactPage settings={settings} />}
-        {activePage === 'admin' && isAdmin && <AdminDashboard products={products} settings={settings} onSeed={seedInitialData} />}
+        {activePage === 'home' && <HomePage onNavigate={handleShowPage} onSelectProduct={setSelectedProduct} products={products} loading={loading} settings={settings} t={t} lang={lang} />}
+        {activePage === 'about' && <AboutPage onOpenModal={() => setIsModalOpen(true)} reviews={reviews} settings={settings} t={t} lang={lang} />}
+        {activePage === 'contact' && <ContactPage settings={settings} t={t} lang={lang} />}
+        {activePage === 'admin' && isAdmin && <AdminDashboard products={products} settings={settings} onSeed={seedInitialData} t={t} lang={lang} />}
         
-        <PaymentMethods user={user} isAdmin={isAdmin} onLogin={handleLogin} onLogout={handleLogout} onNavigate={handleShowPage} settings={settings} />
+        <PaymentMethods user={user} isAdmin={isAdmin} onLogin={handleLogin} onLogout={handleLogout} onNavigate={handleShowPage} settings={settings} t={t} lang={lang} />
       </main>
 
       <AnimatePresence>
@@ -934,6 +1270,8 @@ function AppContent() {
             product={selectedProduct} 
             onClose={() => setSelectedProduct(null)} 
             onAddToCart={() => handleAddToCart(selectedProduct)}
+            t={t}
+            lang={lang}
           />
         )}
       </AnimatePresence>
@@ -945,6 +1283,7 @@ function AppContent() {
             onClose={() => setIsCartOpen(false)} 
             onRemove={removeFromCart} 
             settings={settings}
+            t={t}
           />
         )}
       </AnimatePresence>
@@ -955,6 +1294,8 @@ function AppContent() {
           <ReviewModal 
             onClose={() => setIsModalOpen(false)} 
             onSubmit={addReview} 
+            t={t}
+            lang={lang}
           />
         )}
       </AnimatePresence>
@@ -964,10 +1305,10 @@ function AppContent() {
 
 // --- Sub-components ---
 
-function DrawerLink({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
+function DrawerLink({ active, onClick, icon, label, lang }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string, lang: string }) {
   return (
     <button 
-      className={`flex items-center gap-3.5 px-6 py-4 w-full text-right font-display font-bold transition-all border-r-3 ${active ? 'bg-brand-red/10 border-brand-red text-brand-red' : 'bg-transparent border-transparent text-brand-white'}`}
+      className={`flex items-center gap-3.5 px-6 py-4 w-full text-start font-display font-bold transition-all ${lang === 'ar' ? 'border-r-3' : 'border-l-3'} ${active ? 'bg-brand-red/10 border-brand-red text-brand-red' : 'bg-transparent border-transparent text-brand-white'}`}
       onClick={onClick}
     >
       <span className="flex-shrink-0">{icon}</span>
@@ -976,12 +1317,12 @@ function DrawerLink({ active, onClick, icon, label }: { active: boolean, onClick
   );
 }
 
-function HomePage({ onNavigate, onSelectProduct, products, loading, settings }: { onNavigate: (page: 'home' | 'about' | 'contact' | 'admin') => void, onSelectProduct: (p: Product) => void, products: Product[], loading: boolean, settings: SiteSettings }) {
+function HomePage({ onNavigate, onSelectProduct, products, loading, settings, t, lang }: { onNavigate: (page: 'home' | 'about' | 'contact' | 'admin') => void, onSelectProduct: (p: Product) => void, products: Product[], loading: boolean, settings: SiteSettings, t: any, lang: string }) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const filteredProducts = selectedCategory 
     ? products.filter(p => p.category === selectedCategory)
-    : products;
+    : [];
 
   return (
     <motion.div 
@@ -1003,20 +1344,20 @@ function HomePage({ onNavigate, onSelectProduct, products, loading, settings }: 
         <div className="relative z-10 px-6 py-12">
           <div className="mb-6">
             <h1 className="font-display text-6xl font-black text-white tracking-tighter">
-              {settings.logoText}<span className="text-brand-red">{settings.logoSubtext}</span>
+              {lang === 'ar' ? settings.logoText : 'AL-'}<span className="text-brand-red">{lang === 'ar' ? settings.logoSubtext : 'SEROUGI'}</span>
             </h1>
             <div className="h-1 w-20 bg-brand-red mt-2"></div>
           </div>
           <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl inline-block max-w-[320px] shadow-2xl">
             <p className="text-sm text-brand-white/90 leading-relaxed font-sans">
-              نقدم أرقى خامات الجلد وأحدث تصميمات، بحرفية عالية وضمان طويل الأمد.
+              {t.heroDescription}
             </p>
             <div className="flex gap-3 mt-6">
               <button className="bg-brand-red text-white px-6 py-2 text-sm font-bold rounded-full active:scale-95 transition-all" onClick={() => onNavigate('about')}>
-                اعرف أكتر
+                {t.learnMore}
               </button>
               <button className="border border-white/10 text-white px-6 py-2 text-sm font-bold rounded-full active:bg-white/5 transition-all" onClick={() => onNavigate('contact')}>
-                تواصل معنا
+                {t.contactUs}
               </button>
             </div>
           </div>
@@ -1024,7 +1365,7 @@ function HomePage({ onNavigate, onSelectProduct, products, loading, settings }: 
       </section>
 
       <div className="px-5 py-4">
-        <BeforeAfterSlider />
+        <BeforeAfterSlider t={t} />
       </div>
 
       <div className="h-0.5 bg-brand-gradient w-full opacity-80 shadow-[0_0_10px_rgba(192,57,43,0.3)]"></div>
@@ -1033,74 +1374,76 @@ function HomePage({ onNavigate, onSelectProduct, products, loading, settings }: 
       <section className="p-5">
         <div className="flex flex-col items-center mb-12">
           <div className="h-px w-16 bg-brand-red/40 mb-4"></div>
-          <h2 className="font-display font-black text-5xl text-brand-white tracking-widest uppercase text-center">المنتجات</h2>
-          <div className="text-[10px] text-brand-red font-bold tracking-[0.4em] uppercase mt-3">Our Collection</div>
+          <h2 className="font-display font-black text-5xl text-brand-white tracking-widest uppercase text-center">{t.products}</h2>
+          <div className="text-[10px] text-brand-red font-bold tracking-[0.4em] uppercase mt-3">{t.ourCollection}</div>
           <div className="h-px w-16 bg-brand-red/40 mt-4"></div>
         </div>
         
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4 opacity-50">
             <Loader2 className="animate-spin text-brand-red" size={40} />
-            <p className="font-bold">جاري تحميل المنتجات...</p>
+            <p className="font-bold">{t.loading}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-8">
             {products.slice(0, 5).map(prod => (
-              <ProductCard key={prod.id} product={prod} onClick={() => onSelectProduct(prod)} />
+              <ProductCard key={prod.id} product={prod} onClick={() => onSelectProduct(prod)} t={t} />
             ))}
           </div>
         )}
       </section>
 
-      {/* Categories Filter Section */}
+      {/* Categories Filter Section (Always Visible) */}
       <section className="p-5 pt-0">
-        <div className="flex flex-col gap-6 mb-10">
-          <div className="font-display text-sm font-bold tracking-[0.2em] uppercase text-brand-red/60 text-center">تصفح الأقسام</div>
-          
-          <div className="grid grid-cols-2 gap-4">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(prev => prev === cat.id ? null : cat.id)}
-                className={`group relative flex flex-col items-center justify-center p-8 rounded-3xl transition-all duration-500 overflow-hidden ${
-                  selectedCategory === cat.id 
-                    ? 'bg-brand-red text-white shadow-[0_20px_40px_rgba(192,57,43,0.2)]' 
-                    : 'bg-brand-dark border border-white/5 text-brand-white hover:border-brand-red/30'
-                }`}
-              >
-                {/* Decorative background circle */}
-                <div className={`absolute -right-4 -bottom-4 w-20 h-20 rounded-full transition-all duration-500 ${
-                  selectedCategory === cat.id ? 'bg-white/10 scale-150' : 'bg-brand-red/5 group-hover:bg-brand-red/10'
-                }`}></div>
+        <div className="flex flex-col items-center mb-8">
+          <div className="h-px w-12 bg-brand-red/30 mb-3"></div>
+          <h2 className="font-display font-black text-3xl text-brand-white tracking-widest uppercase text-center">{t.categories}</h2>
+          <div className="text-[9px] text-brand-red font-bold tracking-[0.3em] uppercase mt-2">{t.browseCategories}</div>
+        </div>
 
-                <span className={`mb-3 transition-transform duration-500 group-hover:scale-110 ${
-                  selectedCategory === cat.id ? 'text-white' : 'text-brand-red'
-                }`}>
-                   {React.createElement(cat.icon as any, { size: 32, strokeWidth: 1.2 })}
-                </span>
-                <span className="text-xs font-black tracking-widest uppercase">{cat.label}</span>
-              </button>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 gap-4 mb-10">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(prev => prev === cat.id ? null : cat.id)}
+              className={`group relative flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-500 overflow-hidden ${
+                selectedCategory === cat.id 
+                  ? 'bg-brand-red text-white shadow-[0_15px_30px_rgba(192,57,43,0.2)]' 
+                  : 'bg-brand-dark border border-white/5 text-brand-white hover:border-brand-red/30'
+              }`}
+            >
+              <div className={`absolute -right-3 -bottom-3 w-16 h-16 rounded-full transition-all duration-500 ${
+                selectedCategory === cat.id ? 'bg-white/10 scale-150' : 'bg-brand-red/5 group-hover:bg-brand-red/10'
+              }`}></div>
+
+              <span className={`mb-2 transition-transform duration-500 group-hover:scale-110 ${
+                selectedCategory === cat.id ? 'text-white' : 'text-brand-red'
+              }`}>
+                 {React.createElement(cat.icon as any, { size: 28, strokeWidth: 1.2 })}
+              </span>
+              <span className="text-[10px] font-black tracking-widest uppercase">{lang === 'ar' ? cat.label : t[cat.id]}</span>
+            </button>
+          ))}
         </div>
 
         <AnimatePresence mode="wait">
-          <motion.div 
-            key={selectedCategory || 'all'}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className="grid grid-cols-2 gap-4"
-          >
-            {filteredProducts.map(prod => (
-              <motion.div 
-                layout
-                key={prod.id} 
-                className="bg-brand-dark border border-white/5 rounded-2xl overflow-hidden flex flex-col transition-all active:scale-[0.96] h-full shadow-lg hover:border-brand-red/20"
-                onClick={() => onSelectProduct(prod)}
-                whileTap={{ scale: 0.96 }}
-              >
+          {selectedCategory ? (
+            <motion.div 
+              key={selectedCategory}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {filteredProducts.map(prod => (
+                <motion.div 
+                  layout
+                  key={prod.id} 
+                  className="bg-brand-dark border border-white/5 rounded-2xl overflow-hidden flex flex-col transition-all active:scale-[0.96] h-full shadow-lg hover:border-brand-red/20"
+                  onClick={() => onSelectProduct(prod)}
+                  whileTap={{ scale: 0.96 }}
+                >
                   <div className="aspect-[4/5] w-full relative">
                     <img 
                       src={prod.image} 
@@ -1110,32 +1453,46 @@ function HomePage({ onNavigate, onSelectProduct, products, loading, settings }: 
                       loading="lazy"
                     />
                     {prod.badge && (
-                      <div className="absolute top-3 right-3 bg-brand-red text-white text-[9px] font-black px-2 py-1 rounded-md shadow-xl backdrop-blur-md">
+                      <div className="absolute top-2 right-2 bg-brand-red text-white text-[8px] font-black px-1.5 py-0.5 rounded shadow-xl backdrop-blur-md">
                         {prod.badge}
                       </div>
                     )}
                   </div>
-                    <div className="p-4 flex flex-col justify-between flex-1">
-                      <div>
-                        <h3 className="font-display font-bold mb-1 text-[13px] leading-tight">{prod.name}</h3>
+                  <div className="p-3 flex flex-col justify-between flex-1">
+                    <div>
+                      <h3 className="font-display font-bold mb-1 text-[12px] leading-tight">{prod.name}</h3>
+                    </div>
+                    <div className="flex items-center justify-between mt-2">
+                      <div className="text-brand-red font-display font-black text-[12px]">
+                        {prod.price.replace(/[^\d]/g, '')} {t.currency}
                       </div>
-                      <div className="flex items-center justify-between mt-3">
-                        <div className="text-brand-red font-display font-black text-sm">{prod.price}</div>
-                        <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
-                          <Plus size={14} strokeWidth={3} />
-                        </div>
+                      <div className="w-5 h-5 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+                        <Plus size={12} strokeWidth={3} />
                       </div>
                     </div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
+          ) : (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12 border border-dashed border-white/10 rounded-3xl bg-white/2"
+            >
+              <div className="text-brand-red/40 mb-3 flex justify-center">
+                <Sparkles size={40} strokeWidth={1} />
+              </div>
+              <p className="text-sm text-brand-muted font-bold tracking-wide">{t.selectCategory}</p>
+            </motion.div>
+          )}
         </AnimatePresence>
       </section>
     </motion.div>
   );
 }
 
-const ProductCard: React.FC<{ product: Product, onClick: () => void }> = ({ product, onClick }) => {
+const ProductCard: React.FC<{ product: Product, onClick: () => void, t: any }> = ({ product, onClick, t }) => {
   return (
     <motion.div 
       className="bg-brand-dark border border-white/5 rounded-2xl overflow-hidden flex flex-col transition-all active:scale-[0.98] shadow-2xl group"
@@ -1163,15 +1520,15 @@ const ProductCard: React.FC<{ product: Product, onClick: () => void }> = ({ prod
           <p className="text-xs text-brand-muted line-clamp-2 leading-relaxed max-w-[80%]">{product.description}</p>
         </div>
         <div className="text-left">
-          <div className="text-brand-red font-display text-lg font-black">{product.price}</div>
-          <div className="text-[10px] text-brand-muted font-bold mt-1">عرض التفاصيل</div>
+          <div className="text-brand-red font-display text-lg font-black">{product.price.replace(/[^\d]/g, '')} {t.currency}</div>
+          <div className="text-[10px] text-brand-muted font-bold mt-1">{t.viewDetails}</div>
         </div>
       </div>
     </motion.div>
   );
 };
 
-function CartDrawer({ items, onClose, onRemove, settings }: { items: Product[], onClose: () => void, onRemove: (i: number) => void, settings: SiteSettings }) {
+function CartDrawer({ items, onClose, onRemove, settings, t }: { items: Product[], onClose: () => void, onRemove: (i: number) => void, settings: SiteSettings, t: any }) {
   const total = items.length;
 
   const handleCheckout = () => {
@@ -1194,7 +1551,7 @@ function CartDrawer({ items, onClose, onRemove, settings }: { items: Product[], 
         <div className="p-6 border-b border-white/5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <ShoppingBag className="text-brand-red" size={24} />
-            <h2 className="font-display text-xl font-black">سلة التسوق</h2>
+            <h2 className="font-display text-xl font-black">{t.cart}</h2>
           </div>
           <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white" onClick={onClose}>
             <X size={20} />
@@ -1205,12 +1562,12 @@ function CartDrawer({ items, onClose, onRemove, settings }: { items: Product[], 
           {items.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center text-center gap-4 opacity-40">
               <ShoppingBag size={64} strokeWidth={1} />
-              <p className="font-display font-bold">السلة فارغة حالياً</p>
+              <p className="font-display font-bold">{t.emptyCart}</p>
               <button 
                 className="text-brand-red text-sm font-bold underline underline-offset-4"
                 onClick={onClose}
               >
-                ابدأ التسوق الآن
+                {t.startShopping}
               </button>
             </div>
           ) : (
@@ -1226,7 +1583,7 @@ function CartDrawer({ items, onClose, onRemove, settings }: { items: Product[], 
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-sm truncate">{item.name}</h4>
-                  <div className="text-brand-red font-black text-xs mt-1">{item.price}</div>
+                  <div className="text-brand-red font-black text-xs mt-1">{item.price.replace(/[^\d]/g, '')} {t.currency}</div>
                 </div>
                 <button 
                   className="w-8 h-8 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center active:bg-red-500/20"
@@ -1242,15 +1599,15 @@ function CartDrawer({ items, onClose, onRemove, settings }: { items: Product[], 
         {items.length > 0 && (
           <div className="p-6 border-t border-white/5 bg-brand-black/50">
             <div className="flex justify-between items-center mb-6">
-              <span className="text-brand-muted font-bold">عدد المنتجات</span>
-              <span className="font-display font-black text-xl">{total}</span>
+              <span className="text-brand-muted font-bold">{t.total}</span>
+              <span className="font-display font-black text-xl">{total} <span className="text-xs text-brand-muted font-bold">{t.productsCount}</span></span>
             </div>
             <button 
               className="w-full bg-brand-red text-white font-display font-black py-4 rounded-xl shadow-xl shadow-brand-red/20 flex items-center justify-center gap-2 active:scale-95 transition-all"
               onClick={handleCheckout}
             >
-              إتمام الطلب عبر واتساب
-              <ArrowRight size={18} />
+              <MessageCircle size={24} />
+              {t.checkout}
             </button>
           </div>
         )}
@@ -1268,7 +1625,7 @@ function Stat({ n, l }: { n: string, l: string }) {
   );
 }
 
-function AboutPage({ onOpenModal, reviews, settings }: { onOpenModal: () => void, reviews: Review[], settings: SiteSettings }) {
+function AboutPage({ onOpenModal, reviews, settings, t, lang }: { onOpenModal: () => void, reviews: Review[], settings: SiteSettings, t: any, lang: string }) {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -1276,31 +1633,31 @@ function AboutPage({ onOpenModal, reviews, settings }: { onOpenModal: () => void
       className="page"
     >
       <div className="p-5 pb-4 bg-gradient-to-b from-brand-red-dark/8 to-transparent border-b border-brand-red/12">
-        <div className="inline-block bg-brand-red/12 border border-brand-red/25 text-brand-red text-[11px] tracking-[0.2em] uppercase px-2.5 py-1 mb-3">من نحن</div>
-        <h2 className="font-display text-3xl font-black leading-tight mb-4">{settings.logoText}<br /><span className="text-brand-red">{settings.logoSubtext}</span> بيتكلم عن نفسه</h2>
-        <p className="text-sm text-brand-white/88 leading-loose">في السروجي، الخبرة هي اللي بتتكلم. مش مجرد مكان لفرش السيارات، إحنا وجهتك الأولى لما تدور على أعلى جودة وأدق تقفيل.</p>
+        <div className="inline-block bg-brand-red/12 border border-brand-red/25 text-brand-red text-[11px] tracking-[0.2em] uppercase px-2.5 py-1 mb-3">{t.about}</div>
+        <h2 className="font-display text-3xl font-black leading-tight mb-4">{settings.logoText}<br /><span className="text-brand-red">{settings.logoSubtext}</span> {t.heroSubtitle}</h2>
+        <p className="text-sm text-brand-white/88 leading-loose">{t.aboutDescription}</p>
       </div>
 
       <div className="flex flex-col gap-px bg-brand-dark3">
-        <AboutFeature n="01" t="خبرة سنين" p="فاهمين احتياج كل صاحب عربية وبنقدم له اللي يعيش معاه." />
-        <AboutFeature n="02" t="جودة حقيقية" p="بنختار خاماتنا بعناية عشان نضمن لك الرفاهية والحماية الكاملة." />
-        <AboutFeature n="03" t="ثقة متبادلة" p="اسمنا ارتبط بالأمانة في الشغل، وده اللي بيخلي عملائنا دايمًا يختارونا." />
+        <AboutFeature n="01" t={t.feature1Title} p={t.feature1Desc} />
+        <AboutFeature n="02" t={t.feature2Title} p={t.feature2Desc} />
+        <AboutFeature n="03" t={t.feature3Title} p={t.feature3Desc} />
       </div>
 
       <p className="p-5 text-sm text-brand-white/75 leading-loose italic border-y border-white/5 bg-brand-red/3">
-        باختصار.. إحنا بنهتم بعربيتك كأنها عربيتنا، وبنقدم لك النتيجة اللي تليق بذوقك وتعيش معاك.
+        {t.aboutFooter}
       </p>
 
       <div className="p-6 pb-3.5 flex justify-between items-center">
         <div>
-          <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-1">آراء العملاء</div>
-          <div className="font-display text-2xl font-black leading-tight">قالوا عنا</div>
+          <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-1">{t.reviews}</div>
+          <div className="font-display text-2xl font-black leading-tight">{t.whatTheySaid}</div>
         </div>
         <button 
           className="flex items-center gap-1.5 bg-brand-red/10 border border-brand-red/28 text-brand-red font-sans text-xs font-bold px-3.5 py-1.5 cursor-pointer rounded-sm transition-all active:bg-brand-red/20"
           onClick={onOpenModal}
         >
-          <Plus size={16} strokeWidth={3} /> أضف رأيك
+          <Plus size={16} strokeWidth={3} /> {t.addReview}
         </button>
       </div>
 
@@ -1338,53 +1695,57 @@ function AboutFeature({ n, t, p }: { n: string, t: string, p: string }) {
   );
 }
 
-function ContactPage({ settings }: { settings: SiteSettings }) {
+function ContactPage({ settings, t, lang }: { settings: SiteSettings, t: any, lang: string }) {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="page p-5 pb-12"
     >
-      <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-1">تواصل معنا</div>
-      <h2 className="font-display text-3xl font-black mb-1">كلمنا على<br /><span className="text-brand-red">طول</span></h2>
-      <p className="text-sm text-brand-muted leading-relaxed mb-7">عايز تعرف أكتر أو تعمل طلب؟ إحنا هنا عشانك على كل المنصات.</p>
+      <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-1">{t.contact}</div>
+      <h2 className="font-display text-3xl font-black mb-1">{t.contactTitle.split(' ')[0]}<br /><span className="text-brand-red">{t.contactTitle.split(' ').slice(1).join(' ')}</span></h2>
+      <p className="text-sm text-brand-muted leading-relaxed mb-7">{t.contactDescription}</p>
 
       <div className="flex flex-col gap-px bg-brand-dark3 mb-8">
         <ContactLink 
           href={settings.facebookUrl} 
           icon={<Facebook size={22} color="#1877F2" />} 
-          name="فيسبوك" 
+          name={t.facebook} 
           val={`${settings.logoText}${settings.logoSubtext} - Facebook`} 
           className="fb"
           iconBg="bg-[#1877F2]/15"
+          lang={lang}
         />
         <ContactLink 
           href={settings.instagramUrl} 
           icon={<Instagram size={22} color="#E4405F" />} 
-          name="إنستجرام" 
+          name={t.instagram} 
           val={`${settings.logoText}${settings.logoSubtext} - Instagram`} 
           className="ig"
           iconBg="bg-[#E4405F]/15"
+          lang={lang}
         />
         <ContactLink 
           href={`https://wa.me/${settings.whatsappNumber}`} 
           icon={<div className="text-[#25D366] text-xl">💬</div>} 
-          name="واتساب" 
+          name={t.whatsapp} 
           val={settings.whatsappNumber} 
           className="wa"
           iconBg="bg-[#25D366]/15"
+          lang={lang}
         />
         <ContactLink 
           href={`tel:${settings.phoneNumber}`} 
           icon={<PhoneCall size={20} color="#C0392B" />} 
-          name="اتصل بنا" 
+          name={t.callUs} 
           val={settings.phoneNumber} 
           className="ph"
           iconBg="bg-brand-red/15"
+          lang={lang}
         />
       </div>
 
-      <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-2">موقعنا</div>
+      <div className="text-[11px] tracking-[0.22em] uppercase text-brand-red mb-2">{t.ourLocation}</div>
       <a 
         href={settings.locationUrl} 
         target="_blank" 
@@ -1393,13 +1754,13 @@ function ContactPage({ settings }: { settings: SiteSettings }) {
       >
         <MapPin size={30} className="text-brand-red" />
         <div className="font-bold text-brand-white">{settings.location}</div>
-        <div className="text-[11px]">اضغط لفتح الخريطة</div>
+        <div className="text-[11px]">{t.clickToOpenMap}</div>
       </a>
     </motion.div>
   );
 }
 
-function ContactLink({ href, icon, name, val, className, iconBg }: { href: string, icon: React.ReactNode, name: string, val: string, className: string, iconBg: string }) {
+function ContactLink({ href, icon, name, val, className, iconBg, lang }: { href: string, icon: React.ReactNode, name: string, val: string, className: string, iconBg: string, lang: string }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={`bg-brand-dark flex items-center gap-3.5 p-4.5 transition-all active:brightness-110 odd:bg-brand-dark2 ${className}`}>
       <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${iconBg}`}>
@@ -1409,12 +1770,16 @@ function ContactLink({ href, icon, name, val, className, iconBg }: { href: strin
         <div className="font-display text-base font-extrabold mb-0.5">{name}</div>
         <div className="text-xs text-brand-muted">{val}</div>
       </div>
-      <ChevronLeft size={18} className="mr-auto text-brand-muted" />
+      {lang === 'ar' ? (
+        <ChevronLeft size={18} className="mr-auto text-brand-muted" />
+      ) : (
+        <ChevronRight size={18} className="ml-auto text-brand-muted" />
+      )}
     </a>
   );
 }
 
-function ReviewModal({ onClose, onSubmit }: { onClose: () => void, onSubmit: (review: { name: string, car: string, text: string, stars: number }) => void }) {
+function ReviewModal({ onClose, onSubmit, t, lang }: { onClose: () => void, onSubmit: (review: { name: string, car: string, text: string, stars: number }) => void, t: any, lang: string }) {
   const [name, setName] = useState('');
   const [car, setCar] = useState('');
   const [text, setText] = useState('');
@@ -1422,8 +1787,6 @@ function ReviewModal({ onClose, onSubmit }: { onClose: () => void, onSubmit: (re
 
   const handleSubmit = () => {
     if (!name.trim() || !text.trim()) {
-      // We can't use alert here, so we'll just return. 
-      // Ideally the UI should show validation errors.
       return;
     }
     onSubmit({ name, car, text, stars });
@@ -1440,33 +1803,35 @@ function ReviewModal({ onClose, onSubmit }: { onClose: () => void, onSubmit: (re
         onClick={e => e.stopPropagation()}
       >
         <div className="w-8 h-1 bg-white/15 rounded-full mx-auto mb-5"></div>
-        <div className="font-display text-lg font-black mb-5">أضف <span className="text-brand-red">رأيك</span> 🌟</div>
+        <div className="font-display text-lg font-black mb-5">
+          {t.addReview.split(' ')[0]} <span className="text-brand-red">{t.addReview.split(' ').slice(1).join(' ')}</span> 🌟
+        </div>
 
         <div className="mb-3.5">
-          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">اسمك</label>
+          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">{t.yourName}</label>
           <input 
             type="text" 
-            className="w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all text-right" 
-            placeholder="مثال: أحمد محمد"
+            className={`w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all ${lang === 'ar' ? 'text-right' : 'text-left'}`} 
+            placeholder={t.namePlaceholder}
             value={name}
             onChange={e => setName(e.target.value)}
           />
         </div>
 
         <div className="mb-3.5">
-          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">نوع عربيتك (اختياري)</label>
+          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">{t.yourCar}</label>
           <input 
             type="text" 
-            className="w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all text-right" 
-            placeholder="مثال: تويوتا كورولا 2023"
+            className={`w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all ${lang === 'ar' ? 'text-right' : 'text-left'}`} 
+            placeholder={t.carPlaceholder}
             value={car}
             onChange={e => setCar(e.target.value)}
           />
         </div>
 
         <div className="mb-3.5">
-          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">تقييمك</label>
-          <div className="flex gap-1 flex-row-reverse justify-end">
+          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">{t.yourRating}</label>
+          <div className={`flex gap-1 ${lang === 'ar' ? 'flex-row-reverse justify-end' : 'flex-row justify-start'}`}>
             {[5, 4, 3, 2, 1].map(v => (
               <button 
                 key={v}
@@ -1480,10 +1845,10 @@ function ReviewModal({ onClose, onSubmit }: { onClose: () => void, onSubmit: (re
         </div>
 
         <div className="mb-3.5">
-          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">رأيك في السروجي</label>
+          <label className="block text-xs font-semibold text-brand-muted mb-1.5 tracking-wider">{t.yourExperience}</label>
           <textarea 
-            className="w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all text-right min-h-[85px] resize-y" 
-            placeholder="اكتب تجربتك معنا..."
+            className={`w-full bg-brand-dark2 border border-white/8 text-brand-white font-sans text-sm p-2.5 rounded outline-none focus:border-brand-red/50 transition-all min-h-[85px] resize-y ${lang === 'ar' ? 'text-right' : 'text-left'}`} 
+            placeholder={t.reviewPlaceholder}
             value={text}
             onChange={e => setText(e.target.value)}
           />
@@ -1493,14 +1858,14 @@ function ReviewModal({ onClose, onSubmit }: { onClose: () => void, onSubmit: (re
           className="w-full bg-brand-red text-white border-none p-3.5 font-display text-base font-black cursor-pointer rounded mt-1 transition-all active:bg-[#a93226] active:scale-[0.98]"
           onClick={handleSubmit}
         >
-          نشر الرأي ✓
+          {t.submitReview}
         </button>
       </motion.div>
     </div>
   );
 }
 
-function BeforeAfterSlider() {
+function BeforeAfterSlider({ t }: { t: any }) {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -1525,13 +1890,13 @@ function BeforeAfterSlider() {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&q=75&w=800" 
-            alt="بعد التجديد" 
+            alt={t.after} 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
           <div className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/10">
-            بعد التجديد
+            {t.after}
           </div>
         </div>
 
@@ -1542,13 +1907,13 @@ function BeforeAfterSlider() {
         >
           <img 
             src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=75&w=800" 
-            alt="قبل التجديد" 
+            alt={t.before} 
             className="w-full h-full object-cover grayscale brightness-75"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
           <div className="absolute bottom-6 right-6 bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/10">
-            قبل التجديد
+            {t.before}
           </div>
         </div>
 
@@ -1569,12 +1934,12 @@ function BeforeAfterSlider() {
   );
 }
 
-function PaymentMethods({ user, isAdmin, onLogin, onLogout, onNavigate, settings }: { user: any, isAdmin: boolean, onLogin: () => void, onLogout: () => void, onNavigate: (page: any) => void, settings: SiteSettings }) {
+function PaymentMethods({ user, isAdmin, onLogin, onLogout, onNavigate, settings, t, lang }: { user: any, isAdmin: boolean, onLogin: () => void, onLogout: () => void, onNavigate: (page: any) => void, settings: SiteSettings, t: any, lang: string }) {
   const activeMethods = settings.paymentMethods.filter(pm => pm.active);
 
   return (
     <div className="p-8 border-t border-white/5 bg-brand-black flex flex-col items-center gap-4">
-      <div className="text-[10px] tracking-[0.2em] uppercase text-brand-muted font-bold">طرق الدفع</div>
+      <div className="text-[10px] tracking-[0.2em] uppercase text-brand-muted font-bold">{t.paymentMethods}</div>
       <div className="flex items-center gap-6">
         {activeMethods.map(pm => (
           <div key={pm.id} className="flex flex-col items-center gap-1">
@@ -1593,18 +1958,18 @@ function PaymentMethods({ user, isAdmin, onLogin, onLogout, onNavigate, settings
       </div>
       
       <div className="flex flex-col items-center gap-2 mt-4">
-        <div className="text-[9px] text-brand-muted">© {new Date().getFullYear()} {settings.logoText}{settings.logoSubtext} للفرش الفاخر. جميع الحقوق محفوظة.</div>
+        <div className="text-[9px] text-brand-muted">© {new Date().getFullYear()} {settings.logoText}{settings.logoSubtext} {t.forLuxury}. {t.rights}</div>
         
         <div className="flex gap-4">
           {user ? (
             <>
               {isAdmin && (
-                <button onClick={() => onNavigate('admin')} className="text-[10px] text-brand-red font-bold hover:underline transition-all">فتح لوحة التحكم</button>
+                <button onClick={() => onNavigate('admin')} className="text-[10px] text-brand-red font-bold hover:underline transition-all">{t.openAdmin}</button>
               )}
-              <button onClick={onLogout} className="text-[8px] text-white/10 hover:text-brand-red transition-colors">تسجيل خروج ({user.email})</button>
+              <button onClick={onLogout} className="text-[8px] text-white/10 hover:text-brand-red transition-colors">{t.logout} ({user.email})</button>
             </>
           ) : (
-            <button onClick={onLogin} className="text-[8px] text-white/10 hover:text-brand-red transition-colors">دخول الإدارة</button>
+            <button onClick={onLogin} className="text-[8px] text-white/10 hover:text-brand-red transition-colors">{t.adminLogin}</button>
           )}
         </div>
       </div>
@@ -1612,7 +1977,7 @@ function PaymentMethods({ user, isAdmin, onLogin, onLogout, onNavigate, settings
   );
 }
 
-function AdminDashboard({ products, settings, onSeed }: { products: Product[], settings: SiteSettings, onSeed: () => void }) {
+function AdminDashboard({ products, settings, onSeed, t, lang }: { products: Product[], settings: SiteSettings, onSeed: () => void, t: any, lang: string }) {
   const [activeTab, setActiveTab] = useState<'products' | 'settings'>('products');
   const [editingId, setEditingId] = useState<string | null>(null);
   const [isAdding, setIsAdding] = useState(false);
@@ -1664,7 +2029,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
       }
     } catch (error) {
       console.error("Upload failed", error);
-      setStatusMessage({ text: "فشل رفع الصورة. حاول مرة أخرى.", type: 'error' });
+      setStatusMessage({ text: t.uploadFailed, type: 'error' });
     } finally {
       setIsUploading(false);
     }
@@ -1678,7 +2043,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           images: [formData.image || ''] // Sync main image to gallery for simplicity
         });
         setEditingId(null);
-        setStatusMessage({ text: 'تم تحديث المنتج بنجاح', type: 'success' });
+        setStatusMessage({ text: t.productUpdated, type: 'success' });
       } else {
         await addDoc(collection(db, 'products'), {
           ...formData,
@@ -1687,23 +2052,23 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           createdAt: Timestamp.now()
         });
         setIsAdding(false);
-        setStatusMessage({ text: 'تم إضافة المنتج بنجاح', type: 'success' });
+        setStatusMessage({ text: t.productAdded, type: 'success' });
       }
       setFormData({ name: '', price: '', image: '', description: '', category: 'upholstery', badge: '' });
     } catch (e) {
       handleFirestoreError(e, OperationType.WRITE, 'products');
-      setStatusMessage({ text: 'فشل في حفظ المنتج', type: 'error' });
+      setStatusMessage({ text: t.saveFailed, type: 'error' });
     }
   };
 
   const handleDelete = async (id: string) => {
     try {
       await deleteDoc(doc(db, 'products', id));
-      setStatusMessage({ text: 'تم حذف المنتج بنجاح', type: 'success' });
+      setStatusMessage({ text: t.productDeleted, type: 'success' });
       setShowDeleteConfirm(null);
     } catch (e) {
       handleFirestoreError(e, OperationType.DELETE, 'products');
-      setStatusMessage({ text: 'فشل في حذف المنتج', type: 'error' });
+      setStatusMessage({ text: t.deleteFailed, type: 'error' });
     }
   };
 
@@ -1711,10 +2076,10 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
     setIsSavingSettings(true);
     try {
       await setDoc(doc(db, 'settings', 'site'), settingsForm);
-      setStatusMessage({ text: 'تم حفظ الإعدادات بنجاح', type: 'success' });
+      setStatusMessage({ text: t.settingsSaved, type: 'success' });
     } catch (e) {
       handleFirestoreError(e, OperationType.WRITE, 'settings');
-      setStatusMessage({ text: 'فشل في حفظ الإعدادات', type: 'error' });
+      setStatusMessage({ text: t.settingsFailed, type: 'error' });
     } finally {
       setIsSavingSettings(false);
     }
@@ -1737,8 +2102,10 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
     >
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h2 className="font-display text-3xl font-black">لوحة <span className="text-brand-red">التحكم</span></h2>
-          <p className="text-xs text-brand-muted mt-1">إدارة المنتجات وإعدادات الموقع</p>
+          <h2 className="font-display text-3xl font-black">
+            {t.adminTitleMain} <span className="text-brand-red">{t.adminTitleRed}</span>
+          </h2>
+          <p className="text-xs text-brand-muted mt-1">{t.adminSub}</p>
         </div>
       </div>
 
@@ -1758,28 +2125,28 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           onClick={() => setActiveTab('products')}
           className={`flex-1 py-3 rounded-lg text-xs font-bold transition-all ${activeTab === 'products' ? 'bg-brand-red text-white shadow-lg' : 'text-brand-muted hover:text-white'}`}
         >
-          المنتجات
+          {t.productsTab}
         </button>
         <button 
           onClick={() => setActiveTab('settings')}
           className={`flex-1 py-3 rounded-lg text-xs font-bold transition-all ${activeTab === 'settings' ? 'bg-brand-red text-white shadow-lg' : 'text-brand-muted hover:text-white'}`}
         >
-          الإعدادات
+          {t.settingsTab}
         </button>
       </div>
 
       {activeTab === 'products' ? (
         <>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-sm font-bold text-brand-muted uppercase tracking-widest">إدارة المنتجات</h3>
+            <h3 className="text-sm font-bold text-brand-muted uppercase tracking-widest">{t.manageProducts}</h3>
             <div className="flex gap-2">
               <button 
                 onClick={onSeed}
                 className="bg-brand-muted/10 text-brand-muted p-3 rounded-xl hover:bg-brand-muted/20 transition-all flex items-center gap-2 text-[10px] font-bold"
-                title="استعادة الـ 16 منتجاً الأصلية"
+                title={t.restoreOriginal}
               >
                 <PlusCircle size={16} />
-                استعادة الأصلي
+                {t.restoreOriginal}
               </button>
               <button 
                 onClick={() => { setIsAdding(true); setEditingId(null); setFormData({ name: '', price: '', image: '', description: '', category: 'upholstery', badge: '' }); }}
@@ -1798,12 +2165,12 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
             >
               <div className="flex items-center gap-2 mb-6 text-brand-red">
                 {editingId ? <Edit size={20} /> : <PlusCircle size={20} />}
-                <h3 className="font-bold">{editingId ? 'تعديل المنتج' : 'إضافة منتج جديد'}</h3>
+                <h3 className="font-bold">{editingId ? t.editProduct : t.addProduct}</h3>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase font-bold text-brand-muted">اسم المنتج</label>
+                  <label className="text-[10px] uppercase font-bold text-brand-muted">{t.productName}</label>
                   <div className="relative">
                     <Type className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted" size={16} />
                     <input 
@@ -1811,14 +2178,14 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                       value={formData.name}
                       onChange={e => setFormData({...formData, name: e.target.value})}
                       className="w-full bg-brand-dark border border-white/10 p-3 pl-10 rounded-xl outline-none focus:border-brand-red transition-all"
-                      placeholder="مثال: مقاعد جلد فاخر"
+                      placeholder={lang === 'ar' ? "مثال: مقاعد جلد فاخر" : "e.g. Luxury Leather Seats"}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-bold text-brand-muted">السعر</label>
+                    <label className="text-[10px] uppercase font-bold text-brand-muted">{t.productPrice}</label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted" size={16} />
                       <input 
@@ -1826,25 +2193,25 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                         value={formData.price}
                         onChange={e => setFormData({...formData, price: e.target.value})}
                         className="w-full bg-brand-dark border border-white/10 p-3 pl-10 rounded-xl outline-none focus:border-brand-red transition-all"
-                        placeholder="800 ج"
+                        placeholder={lang === 'ar' ? "800 ج" : "800 EGP"}
                       />
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-bold text-brand-muted">القسم</label>
+                    <label className="text-[10px] uppercase font-bold text-brand-muted">{t.productCategory}</label>
                     <select 
                       value={formData.category}
                       onChange={e => setFormData({...formData, category: e.target.value})}
                       className="w-full bg-brand-dark border border-white/10 p-3 rounded-xl outline-none focus:border-brand-red transition-all appearance-none"
                     >
-                      <option value="upholstery">فرش السيارة</option>
-                      <option value="accessories">كماليات</option>
+                      <option value="upholstery">{t.upholstery}</option>
+                      <option value="accessories">{t.accessories}</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase font-bold text-brand-muted">صورة المنتج</label>
+                  <label className="text-[10px] uppercase font-bold text-brand-muted">{t.productImage}</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="relative">
                       <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted" size={16} />
@@ -1853,7 +2220,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                         value={formData.image}
                         onChange={e => setFormData({...formData, image: e.target.value})}
                         className="w-full bg-brand-dark border border-white/10 p-3 pl-10 rounded-xl outline-none focus:border-brand-red transition-all text-xs"
-                        placeholder="رابط الصورة (URL)"
+                        placeholder={t.imageUrl}
                       />
                     </div>
                     <div className="relative">
@@ -1871,12 +2238,12 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                         {isUploading ? (
                           <>
                             <Loader2 size={16} className="animate-spin" />
-                            جاري الرفع...
+                            {t.uploading}
                           </>
                         ) : (
                           <>
                             <PlusCircle size={16} />
-                            رفع صورة من الجهاز
+                            {t.uploadImage}
                           </>
                         )}
                       </label>
@@ -1896,12 +2263,12 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase font-bold text-brand-muted">الوصف</label>
+                  <label className="text-[10px] uppercase font-bold text-brand-muted">{t.productDescription}</label>
                   <textarea 
                     value={formData.description}
                     onChange={e => setFormData({...formData, description: e.target.value})}
                     className="w-full bg-brand-dark border border-white/10 p-3 rounded-xl outline-none focus:border-brand-red transition-all min-h-[80px]"
-                    placeholder="تفاصيل المنتج..."
+                    placeholder={lang === 'ar' ? "تفاصيل المنتج..." : "Product details..."}
                   />
                 </div>
 
@@ -1911,13 +2278,13 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                     className="flex-1 bg-brand-red text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all"
                   >
                     <Save size={18} />
-                    حفظ التعديلات
+                    {t.saveChanges}
                   </button>
                   <button 
                     onClick={() => { setIsAdding(false); setEditingId(null); }}
                     className="flex-1 bg-white/5 text-white py-4 rounded-xl font-bold active:bg-white/10 transition-all"
                   >
-                    إلغاء
+                    {t.cancel}
                   </button>
                 </div>
               </div>
@@ -1925,7 +2292,9 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           )}
 
           <div className="space-y-4">
-            <h3 className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-4">قائمة المنتجات الحالية ({products.length})</h3>
+            <h3 className="text-xs font-bold text-brand-muted uppercase tracking-widest mb-4">
+              {t.currentProducts} ({products.length})
+            </h3>
             {products.map(p => (
               <div key={p.id} className="bg-brand-dark border border-white/5 p-3 rounded-2xl flex items-center gap-4">
                 <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
@@ -1948,13 +2317,13 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                         onClick={() => handleDelete(p.id)}
                         className="px-3 h-9 rounded-lg bg-red-500 text-white text-[10px] font-bold active:scale-95"
                       >
-                        تأكيد
+                        {t.confirm}
                       </button>
                       <button 
                         onClick={() => setShowDeleteConfirm(null)}
                         className="px-3 h-9 rounded-lg bg-white/10 text-white text-[10px] font-bold active:scale-95"
                       >
-                        إلغاء
+                        {t.cancel}
                       </button>
                     </div>
                   ) : (
@@ -1979,19 +2348,19 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           <div className="bg-brand-dark2 border border-white/5 p-6 rounded-2xl shadow-xl">
             <h3 className="font-bold text-brand-red mb-6 flex items-center gap-2">
               <ImageIcon size={20} />
-              إعدادات الواجهة
+              {t.interfaceSettings}
             </h3>
             
             <div className="space-y-6">
               <div className="space-y-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">صورة الهيرو (الرئيسية)</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.heroImage}</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input 
                     type="text" 
                     value={settingsForm.heroImage}
                     onChange={e => setSettingsForm({...settingsForm, heroImage: e.target.value})}
                     className="w-full bg-brand-dark border border-white/10 p-3 rounded-xl outline-none focus:border-brand-red transition-all text-xs"
-                    placeholder="رابط الصورة"
+                    placeholder={t.imageUrl}
                   />
                   <div className="relative">
                     <input 
@@ -2006,7 +2375,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                       className="w-full bg-white/5 border border-dashed border-white/20 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer hover:bg-white/10 transition-all text-xs font-bold"
                     >
                       <PlusCircle size={16} />
-                      رفع صورة جديدة
+                      {t.uploadImage}
                     </label>
                   </div>
                 </div>
@@ -2017,7 +2386,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase font-bold text-brand-muted">نص اللوجو (1)</label>
+                  <label className="text-[10px] uppercase font-bold text-brand-muted">{t.logoText1}</label>
                   <input 
                     type="text" 
                     value={settingsForm.logoText}
@@ -2026,7 +2395,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase font-bold text-brand-muted">نص اللوجو (2)</label>
+                  <label className="text-[10px] uppercase font-bold text-brand-muted">{t.logoText2}</label>
                   <input 
                     type="text" 
                     value={settingsForm.logoSubtext}
@@ -2041,12 +2410,12 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           <div className="bg-brand-dark2 border border-white/5 p-6 rounded-2xl shadow-xl">
             <h3 className="font-bold text-brand-red mb-6 flex items-center gap-2">
               <Phone size={20} />
-              روابط التواصل
+              {t.contactLinks}
             </h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">رابط فيسبوك</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.facebookLink}</label>
                 <input 
                   type="text" 
                   value={settingsForm.facebookUrl}
@@ -2055,7 +2424,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">رابط إنستجرام</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.instagramLink}</label>
                 <input 
                   type="text" 
                   value={settingsForm.instagramUrl}
@@ -2064,7 +2433,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">رقم الواتساب (بدون +)</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.whatsappNumber}</label>
                 <input 
                   type="text" 
                   value={settingsForm.whatsappNumber}
@@ -2073,7 +2442,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">رقم الهاتف</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.phoneNumber}</label>
                 <input 
                   type="text" 
                   value={settingsForm.phoneNumber}
@@ -2082,7 +2451,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 />
               </div>
               <div className="space-y-2 sm:col-span-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">العنوان (نص)</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.addressText}</label>
                 <input 
                   type="text" 
                   value={settingsForm.location}
@@ -2091,7 +2460,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
                 />
               </div>
               <div className="space-y-2 sm:col-span-2">
-                <label className="text-[10px] uppercase font-bold text-brand-muted">رابط الخريطة (Google Maps)</label>
+                <label className="text-[10px] uppercase font-bold text-brand-muted">{t.mapUrl}</label>
                 <input 
                   type="text" 
                   value={settingsForm.locationUrl}
@@ -2105,7 +2474,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
           <div className="bg-brand-dark2 border border-white/5 p-6 rounded-2xl shadow-xl">
             <h3 className="font-bold text-brand-red mb-6 flex items-center gap-2">
               <Banknote size={20} />
-              طرق الدفع المتاحة
+              {t.availablePayments}
             </h3>
             
             <div className="space-y-4">
@@ -2134,7 +2503,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
             className="w-full bg-brand-red text-white py-5 rounded-2xl font-black text-lg shadow-2xl shadow-brand-red/20 active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
           >
             {isSavingSettings ? <Loader2 className="animate-spin" /> : <Save size={24} />}
-            حفظ جميع الإعدادات
+            {t.saveAllSettings}
           </button>
         </motion.div>
       )}
@@ -2142,7 +2511,7 @@ function AdminDashboard({ products, settings, onSeed }: { products: Product[], s
   );
 }
 
-function ProductDetails({ product, onClose, onAddToCart }: { product: Product, onClose: () => void, onAddToCart: () => void }) {
+function ProductDetails({ product, onClose, onAddToCart, t, lang }: { product: Product, onClose: () => void, onAddToCart: () => void, t: any, lang: string }) {
   const [activeImg, setActiveImg] = useState(0);
 
   return (
@@ -2161,7 +2530,9 @@ function ProductDetails({ product, onClose, onAddToCart }: { product: Product, o
         >
           <X size={20} />
         </button>
-        <div className="font-display font-black text-lg">تفاصيل <span className="text-brand-red">المنتج</span></div>
+        <div className="font-display font-black text-lg">
+          {t.productDetails.split(' ')[0]} <span className="text-brand-red">{t.productDetails.split(' ').slice(1).join(' ')}</span>
+        </div>
         <div className="w-10"></div> {/* Spacer */}
       </div>
 
@@ -2200,7 +2571,7 @@ function ProductDetails({ product, onClose, onAddToCart }: { product: Product, o
           <div className="max-w-xl mx-auto w-full">
             <div className="flex items-center gap-3 mb-6">
               <span className="bg-brand-red/10 text-brand-red text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-brand-red/20">
-                {product.category === 'upholstery' ? 'فرش السيارة' : 'كماليات وإكسسوارات'}
+                {product.category === 'upholstery' ? t.upholstery : t.accessories}
               </span>
               {product.badge && (
                 <span className="bg-white/5 text-brand-white/60 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-white/10">
@@ -2219,12 +2590,12 @@ function ProductDetails({ product, onClose, onAddToCart }: { product: Product, o
 
             <div className="grid grid-cols-2 gap-12 mb-12">
               <div>
-                <div className="text-[11px] text-brand-muted font-bold uppercase tracking-[0.2em] mb-3">السعر</div>
-                <div className="text-5xl font-display font-black text-brand-red">{product.price}</div>
+                <div className="text-[11px] text-brand-muted font-bold uppercase tracking-[0.2em] mb-3">{t.price}</div>
+                <div className="text-5xl font-display font-black text-brand-red">{product.price.replace('ج', '').trim()} {t.currency}</div>
               </div>
               
               <div>
-                <div className="text-[11px] text-brand-muted font-bold uppercase tracking-[0.2em] mb-3">الألوان المتاحة</div>
+                <div className="text-[11px] text-brand-muted font-bold uppercase tracking-[0.2em] mb-3">{t.availableColors}</div>
                 <div className="flex gap-3">
                   {product.colors.map((color, i) => (
                     <div 
@@ -2241,9 +2612,9 @@ function ProductDetails({ product, onClose, onAddToCart }: { product: Product, o
             <div className="flex flex-col sm:flex-row gap-4 mt-auto">
               <button 
                 className="flex-1 bg-brand-red text-white font-display font-black py-5 rounded-2xl active:scale-95 transition-all shadow-2xl shadow-brand-red/30 flex items-center justify-center gap-3 text-xl group"
-                onClick={onAddToCart}
+                onClick={() => { onAddToCart(); onClose(); }}
               >
-                <span>إضافة إلى السلة</span>
+                <span>{t.addToCart}</span>
                 <Plus size={24} strokeWidth={3} className="group-hover:rotate-90 transition-transform" />
               </button>
               
@@ -2251,7 +2622,7 @@ function ProductDetails({ product, onClose, onAddToCart }: { product: Product, o
                 className="flex-1 bg-white/5 text-white font-display font-black py-5 rounded-2xl active:bg-white/10 transition-all border border-white/10 flex items-center justify-center gap-3 text-xl"
                 onClick={onClose}
               >
-                العودة للمتجر
+                {t.backToStore}
               </button>
             </div>
           </div>
